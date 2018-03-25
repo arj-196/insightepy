@@ -85,16 +85,16 @@ class POS(Extractor):
 class Ontology(Extractor):
     label = 'Ontology'
 
-    def __init__(self, name='ontology', from_='lem'):
+    def __init__(self, name='ontology', from_feature='lem'):
         self.name = name
-        self.from_ = from_
+        self.from_feature = from_feature
         self._validate_params()
 
     def to_dict(self):
         return dict(
             label=self.label,
             name=self.name,
-            from_=self.from_
+            from_feature=self.from_feature
         )
 
 
