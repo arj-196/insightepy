@@ -3,6 +3,22 @@ from typing import Dict
 from insightepy.errors import InvalidParameterException
 
 
+class FeatureTypes(object):
+    CHUNK = u'chunk'
+    KEYWORD = u'keyword'
+    LEM = u'lem'
+    TOKEN = u'token'
+    STEM = u'stem'
+    SENTIMENT = u'sentiment'
+    NGRAM = u'ngram'
+    ONTOLOGY = u'ontology'
+    POS = u'pos'
+    HASHTAG = u'hashtag'
+    MENTION = u'mention'
+    URL = u'url'
+    EMOTION = u'emotion'
+
+
 class Extractor(object):
     def _validate_params(self) -> None:
         pass
@@ -15,7 +31,7 @@ class Extractor(object):
 
 
 class NGram(Extractor):
-    label = 'NGram'
+    label = FeatureTypes.NGRAM
 
     def __init__(self, name='ngram', n=3):
         self.name = name
@@ -35,7 +51,7 @@ class NGram(Extractor):
 
 
 class HashTag(Extractor):
-    label = 'HashTag'
+    label = FeatureTypes.HASHTAG
 
     def __init__(self, name='hashtag'):
         self.name = name
@@ -43,7 +59,7 @@ class HashTag(Extractor):
 
 
 class Mention(Extractor):
-    label = 'Mention'
+    label = FeatureTypes.MENTION
 
     def __init__(self, name='mention'):
         self.name = name
@@ -51,7 +67,7 @@ class Mention(Extractor):
 
 
 class Url(Extractor):
-    label = 'Url'
+    label = FeatureTypes.URL
 
     def __init__(self, name='url'):
         self.name = name
@@ -59,7 +75,7 @@ class Url(Extractor):
 
 
 class Stemmer(Extractor):
-    label = 'Stemmer'
+    label = FeatureTypes.STEM
 
     def __init__(self, name='stem'):
         self.name = name
@@ -67,7 +83,7 @@ class Stemmer(Extractor):
 
 
 class Sentiment(Extractor):
-    label = 'Sentiment'
+    label = FeatureTypes.SENTIMENT
 
     def __init__(self, name='sentiment'):
         self.name = name
@@ -75,7 +91,7 @@ class Sentiment(Extractor):
 
 
 class POS(Extractor):
-    label = 'POS'
+    label = FeatureTypes.POS
 
     def __init__(self, name='pos'):
         self.name = name
@@ -83,7 +99,7 @@ class POS(Extractor):
 
 
 class Ontology(Extractor):
-    label = 'Ontology'
+    label = FeatureTypes.ONTOLOGY
 
     def __init__(self, name='ontology', from_feature='lem'):
         self.name = name
@@ -99,7 +115,7 @@ class Ontology(Extractor):
 
 
 class Lemmer(Extractor):
-    label = 'Lemmer'
+    label = FeatureTypes.LEM
 
     def __init__(self, name='lem', if_remove_stopwords=True, if_remove_noise=True):
         self.name = name
@@ -117,7 +133,7 @@ class Lemmer(Extractor):
 
 
 class Keyword(Extractor):
-    label = 'Keyword'
+    label = FeatureTypes.KEYWORD
 
     def __init__(self, name='keyword'):
         self.name = name
